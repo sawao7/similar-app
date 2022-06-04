@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import dog from "../img/dog.webp";
+import cat from "../img/cat.jpeg";
 
 export const TopPage = () => {
 	const [text, setText] = React.useState();
@@ -38,18 +40,23 @@ export const TopPage = () => {
 	};
 
 	return (
-		<div>
-			<h1>画像を入力してください</h1>
+		<div className="p-10">
+			<div className="flex justify-center">
+				<h1 className="font-bold">画像を入力してください</h1>
+			</div>
 
 			<div className="flex justify-around">
 				<div>
-					<input accept="image/*" type="file" onChange={getImage} />
-					<img className="h-48" src={image} alt="none" />
+					<label class="flex justify-center bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-pointer">
+						ファイル選択
+						<input className="hidden" accept="image/*" type="file" onChange={getImage} />
+					</label>
+					<img className="h-48" src={image} alt="" />
 				</div>
 			</div>
 			<div className="flex justify-around">
-				<img className="" src="" alt="none" />
-				<img className="" src="" alt="none" />
+				<img className="w-72" src={dog} alt="none" />
+				<img className="w-72" src={cat} alt="none" />
 			</div>
 			<div>
 				<p className="">{text}</p>
