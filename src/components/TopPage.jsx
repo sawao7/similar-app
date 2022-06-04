@@ -4,7 +4,19 @@ import axios from "axios";
 export const TopPage = () => {
 	const [text, setText] = React.useState();
 	const [image, setImage] = React.useState();
-	const [image2, setImage2] = React.useState();
+
+	const url = "";
+
+	React.useEffect(() => {
+		axios
+			.post(url, {
+				image: image,
+			})
+			.then((res) => {
+				console.log(res.data);
+				setText("完了");
+			});
+	}, [image]);
 
 	const func = () => {
 		setText("test");
@@ -36,8 +48,8 @@ export const TopPage = () => {
 				</div>
 			</div>
 			<div className="flex justify-around">
-				<img className="" src="" alt="none"/>
-				<img className="" src="" alt="none"/>
+				<img className="" src="" alt="none" />
+				<img className="" src="" alt="none" />
 			</div>
 			<div>
 				<p className="">{text}</p>
